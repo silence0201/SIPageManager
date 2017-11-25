@@ -15,6 +15,7 @@
 		E8DDE7D11FC9673F00EC4721 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DDE7D01FC9673F00EC4721 /* main.m */; };
 		E8DDE7DA1FC9676800EC4721 /* SIPageIntent.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DDE7D81FC9676800EC4721 /* SIPageIntent.m */; };
 		E8DDE7DD1FC9682700EC4721 /* SIPageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DDE7DC1FC9682700EC4721 /* SIPageManager.m */; };
+		E8DDE7E01FC96F7A00EC4721 /* UIViewController+Intent.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DDE7DF1FC96F7A00EC4721 /* UIViewController+Intent.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,8 @@
 		E8DDE7D91FC9676800EC4721 /* SIPageIntent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIPageIntent.h; sourceTree = "<group>"; };
 		E8DDE7DB1FC9682700EC4721 /* SIPageManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SIPageManager.h; sourceTree = "<group>"; };
 		E8DDE7DC1FC9682700EC4721 /* SIPageManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SIPageManager.m; sourceTree = "<group>"; };
+		E8DDE7DE1FC96F7A00EC4721 /* UIViewController+Intent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Intent.h"; sourceTree = "<group>"; };
+		E8DDE7DF1FC96F7A00EC4721 /* UIViewController+Intent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Intent.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,10 +84,12 @@
 		E8DDE7D71FC9676800EC4721 /* SIPageManager */ = {
 			isa = PBXGroup;
 			children = (
-				E8DDE7D81FC9676800EC4721 /* SIPageIntent.m */,
 				E8DDE7D91FC9676800EC4721 /* SIPageIntent.h */,
+				E8DDE7D81FC9676800EC4721 /* SIPageIntent.m */,
 				E8DDE7DB1FC9682700EC4721 /* SIPageManager.h */,
 				E8DDE7DC1FC9682700EC4721 /* SIPageManager.m */,
+				E8DDE7DE1FC96F7A00EC4721 /* UIViewController+Intent.h */,
+				E8DDE7DF1FC96F7A00EC4721 /* UIViewController+Intent.m */,
 			);
 			path = SIPageManager;
 			sourceTree = SOURCE_ROOT;
@@ -162,6 +167,7 @@
 			files = (
 				E8DDE7DA1FC9676800EC4721 /* SIPageIntent.m in Sources */,
 				E8DDE7C61FC9673E00EC4721 /* ViewController.m in Sources */,
+				E8DDE7E01FC96F7A00EC4721 /* UIViewController+Intent.m in Sources */,
 				E8DDE7DD1FC9682700EC4721 /* SIPageManager.m in Sources */,
 				E8DDE7D11FC9673F00EC4721 /* main.m in Sources */,
 				E8DDE7C31FC9673E00EC4721 /* AppDelegate.m in Sources */,
