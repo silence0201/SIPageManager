@@ -14,7 +14,6 @@ static SIPageManager *sharedManager;
 @interface SIPageManager()
 
 @property (nonatomic, assign) BOOL logAbel;  // 是否开启日志打印
-@property (nonatomic, strong) SIPageIntent *intent ;  // 要跳转的页面
 @property (nonatomic, strong) NSMutableDictionary *pathRegister;  // 注册对应路径
 
 @end

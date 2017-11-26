@@ -14,7 +14,7 @@
 #pragma mark --- 初始化
 - (instancetype)init {
     if(self = [super init]) {
-        // TODO: 额外参数初始化
+        // 额外参数初始化
         self.animated = YES;
     }
     return self;

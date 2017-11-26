@@ -15,11 +15,15 @@
 + (void)setLogEnable:(BOOL)able;
 
 #pragma mark --- 页面跳转
+/// 页面跳转
 + (void)showPageWith:(SIPageIntent *)intent;
 
 #pragma mark --- 页面管理
+/// 注册对应页面URL
 + (void)registerURL:(NSString *)url forIntent:(SIPageIntent *)intent;
+/// 取消注册
 + (void)deregisterURL:(NSString *)url;
+/// 通过URL方式实现页面跳转
 + (BOOL)handleOpenURL:(NSURL *)url;
 
 @end

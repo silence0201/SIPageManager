@@ -96,8 +96,8 @@
 			children = (
 				E88EA1B31FCA77D700B66BA3 /* SIPageIntent.h */,
 				E88EA1B21FCA77D700B66BA3 /* SIPageIntent.m */,
-				E88EA1B11FCA77D700B66BA3 /* UIViewController+Intent.m */,
 				E88EA1B41FCA77D700B66BA3 /* UIViewController+Intent.h */,
+				E88EA1B11FCA77D700B66BA3 /* UIViewController+Intent.m */,
 				E88EA1B01FCA77D700B66BA3 /* SIPageManager.h */,
 				E88EA1B51FCA77D700B66BA3 /* SIPageManager.m */,
 			);
