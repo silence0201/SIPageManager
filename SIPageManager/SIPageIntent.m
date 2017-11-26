@@ -15,6 +15,7 @@
 - (instancetype)init {
     if(self = [super init]) {
         // TODO: 额外参数初始化
+        self.animated = YES;
     }
     return self;
 }
@@ -33,6 +34,12 @@
     intent.method = method;
     intent.parameters = parameters;
     return intent;
+}
+
++ (instancetype)intentWithStoryboard:(NSString *)aStoryboard
+                         aController:(NSString *)aController
+                              method:(SIIntentMethod)method {
+    return [self intentWithStoryboard:aStoryboard aController:aController method:method withParameters:nil];
 }
 
 + (instancetype)intentWithStoryboard:(NSString *)aStoryboard aController:(NSString *)aController method:(SIIntentMethod)method withParameters:(NSDictionary *)parameters {

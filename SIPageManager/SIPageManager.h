@@ -6,7 +6,7 @@
 //  Copyright © 2017年 Silence. All rights reserved.
 //
 
-#import "SIPageIntent.m"
+#import "SIPageIntent.h"
 
 @interface SIPageManager : NSObject
 

@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "SIPageManager.h"
 
 @interface AppDelegate ()
 
@@ -16,6 +17,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+        SIPageIntent *intent = [SIPageIntent intentWithStoryboard:nil aController:@"URLViewController" method:SIIntentMethodPush];
+    [SIPageManager registerURL:@"test" forIntent:intent];
+    [SIPageManager setLogEnable:YES];
     return YES;
 }
 

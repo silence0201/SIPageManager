@@ -7,6 +7,7 @@
 //
 
 #import "SIPageManager.h"
+#import "UIViewController+Intent.h"
 
 static SIPageManager *sharedManager;
 
@@ -18,7 +19,26 @@ static SIPageManager *sharedManager;
 
 @end
 
+@interface NSDictionary (LocaleLog)
+- (NSString *)desc;
+@end
+
 @implementation SIPageManager
+
++ (void)setLogEnable:(BOOL)able {
+    [SIPageManager sharedManager].logAbel = able;
+}
+
++ (void)printWithMethod:(NSString *)method controller:(UIViewController *)controller{
+    if([SIPageManager sharedManager].logAbel){
+        
+        if (controller.vcParams) {
+            NSLog(@"%@:--> %@ \n Params:%@",method,controller,controller.vcParams.desc);
+        }else {
+            NSLog(@"%@:--> %@",method,controller);
+        }
+    }
+}
 
 #pragma mark --- 初始化
 + (instancetype)sharedManager {
@@ -85,12 +105,14 @@ static SIPageManager *sharedManager;
     if (!intent.targetVc) return;
     intent.targetVc.hidesBottomBarWhenPushed =  !intent.showBottomBarWhenPushed;
     UINavigationController *nav = [self rootNavigationController];
+    [self printWithMethod:@"Push" controller:intent.targetVc];
     [nav pushViewController:intent.targetVc animated:intent.animated];
 }
 
 + (void)popWithIntent:(SIPageIntent *)intent {
     if (!intent.targetVc) return;
     UINavigationController *nav = [self rootNavigationController];
+    [self printWithMethod:@"Pop" controller:intent.targetVc];
     [nav popViewControllerAnimated:intent.animated];
 }
 
@@ -105,11 +127,12 @@ static SIPageManager *sharedManager;
             destVC = [[UINavigationController alloc] initWithRootViewController:destVC];
         }
     }
-    
+    [self printWithMethod:@"Present" controller:intent.targetVc];
     [sourceVC presentViewController:destVC animated:intent.animated completion:intent.completion];
 }
 
 + (void)dismissWithIntent:(SIPageIntent *)intent {
+    [self printWithMethod:@"Dismiss" controller:intent.targetVc];
     [[self rootViewController]dismissViewControllerAnimated:intent.animated completion:intent.completion];
 }
 
@@ -134,7 +157,7 @@ static SIPageManager *sharedManager;
 
 #pragma mark --- 页面管理
 + (void)registerURL:(NSString *)url forIntent:(SIPageIntent *)intent {
-    if (!url || url.length == 0 || intent) return;
+    if (!url || url.length == 0 || !intent) return;
     [[SIPageManager sharedManager].pathRegister setObject:intent forKey:url];
 }
 
@@ -185,4 +208,20 @@ static SIPageManager *sharedManager;
     return YES;
 }
 
+@end
+
+@implementation NSDictionary (LocaleLog)
+
+- (NSString *)desc {
+    NSMutableString *mStr = [NSMutableString stringWithString:@"{\n"];
+    [self enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        [mStr appendFormat:@"\t%@ = %@;\n", key, obj];
+    }];
+    [mStr appendString:@"}"];
+    NSRange range = [mStr rangeOfString:@"," options:NSBackwardsSearch];
+    if (range.location != NSNotFound){
+        [mStr deleteCharactersInRange:range];
+    }
+    return mStr;
+}
 @end
