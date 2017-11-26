@@ -15,6 +15,8 @@ typedef NS_ENUM(NSUInteger, SIIntentMethod) {
     SIIntentMethodDismiss
 };
 
+typedef void(^IntentCompletion)(void);
+
 @interface SIPageIntent : NSObject
 
 #pragma mark --- 基本参数
@@ -27,6 +29,10 @@ typedef NS_ENUM(NSUInteger, SIIntentMethod) {
 @property (nonatomic,copy) NSString *aStoryboard;
 
 #pragma mark --- 扩展参数
+@property (nonatomic,copy) IntentCompletion completion;
+@property (nonatomic,assign) BOOL animated;
+@property (nonatomic,assign) BOOL showBottomBarWhenPushed;
+@property (nonatomic,assign) BOOL destInNav;
 
 #pragma mark --- 构造方法
 + (instancetype)intentWithController:(UIViewController *)controller
