@@ -21,6 +21,8 @@
 #pragma mark --- 页面管理
 /// 注册对应页面URL
 + (void)registerURL:(NSString *)url forIntent:(SIPageIntent *)intent;
+/// 通过文件注册
++ (void)registerURLWithFile:(NSString *)filePath;
 /// 取消注册
 + (void)deregisterURL:(NSString *)url;
 /// 通过URL方式实现页面跳转

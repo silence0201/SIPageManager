@@ -160,6 +160,10 @@ static SIPageManager *sharedManager;
     [[SIPageManager sharedManager].pathRegister setObject:intent forKey:url];
 }
 
++ (void)registerURLWithFile:(NSString *)filePath {
+    // TODO:通过文件进行注册
+}
+
 + (void)deregisterURL:(NSString *)url {
     if (!url || url.length == 0) return;
     [[SIPageManager sharedManager].pathRegister removeObjectForKey:url];
