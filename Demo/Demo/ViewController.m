@@ -41,41 +41,4 @@
 
 @end
 
-#pragma mark - 中文输出
-#pragma mark -
-#ifdef DEBUG
-@implementation NSArray (LocaleLog)
-
-- (NSString *)descriptionWithLocale:(id)locale {
-    NSMutableString *mStr = [NSMutableString stringWithString:@"[\n"];
-    [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [mStr appendFormat:@"\t%@,\n", obj];
-    }];
-    [mStr appendString:@"]"];
-    NSRange range = [mStr rangeOfString:@"," options:NSBackwardsSearch];
-    if (range.location != NSNotFound){
-        [mStr deleteCharactersInRange:range];
-    }
-    return mStr;
-}
-
-@end
-
-@implementation NSDictionary (LocaleLog)
-
-- (NSString *)descriptionWithLocale:(id)locale {
-    NSMutableString *mStr = [NSMutableString stringWithString:@"{\n"];
-    [self enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        [mStr appendFormat:@"\t%@ = %@;\n", key, obj];
-    }];
-    [mStr appendString:@"}"];
-    NSRange range = [mStr rangeOfString:@"," options:NSBackwardsSearch];
-    if (range.location != NSNotFound){
-        [mStr deleteCharactersInRange:range];
-    }
-    return mStr;
-}
-@end
-#endif
-
 

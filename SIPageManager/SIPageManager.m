@@ -9,6 +9,12 @@
 #import "SIPageManager.h"
 #import "UIViewController+Intent.h"
 
+#ifdef DEBUG
+#define SILog(...)      printf("[%s]:%s\n", __TIME__ , [[NSString stringWithFormat:__VA_ARGS__] UTF8String])
+#else
+#define SILog(...)
+#endif
+
 static NSString *const aStoryboardKey = @"StoryBoard";
 static NSString *const aViewControllerKey = @"ViewController";
 static NSString *const hostKey = @"Host";
@@ -23,10 +29,6 @@ static SIPageManager *sharedManager;
 
 @end
 
-@interface NSDictionary (LocaleLog)
-- (NSString *)desc;
-@end
-
 @implementation SIPageManager
 
 + (void)setLogEnable:(BOOL)able {
@@ -35,11 +37,10 @@ static SIPageManager *sharedManager;
 
 + (void)printWithMethod:(NSString *)method controller:(UIViewController *)controller{
     if([SIPageManager sharedManager].logAbel){
-        
         if (controller.vcParams) {
-            NSLog(@"%@:--> %@ \n Params:%@",method,controller,controller.vcParams.desc);
+            SILog(@"%@:--> %@ \nParams:%@",method,controller,controller.vcParams);
         }else {
-            NSLog(@"%@:--> %@",method,controller);
+            SILog(@"%@:--> %@",method,controller);
         }
     }
 }
@@ -188,6 +189,9 @@ static SIPageManager *sharedManager;
 
 + (BOOL)handleOpenURL:(NSURL *)url {
     if (!url) return NO ;
+    if([SIPageManager sharedManager].logAbel){
+        SILog(@"跳转的URL:%@",url.absoluteString);
+    }
     NSURLComponents *components = [NSURLComponents componentsWithURL:url resolvingAgainstBaseURL:YES];
     
     // 检查scheme是否匹配
@@ -239,9 +243,29 @@ static SIPageManager *sharedManager;
 
 @end
 
+#pragma mark - 中文输出
+#pragma mark -
+#ifdef DEBUG
+@implementation NSArray (LocaleLog)
+
+- (NSString *)descriptionWithLocale:(id)locale {
+    NSMutableString *mStr = [NSMutableString stringWithString:@"[\n"];
+    [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [mStr appendFormat:@"\t%@,\n", obj];
+    }];
+    [mStr appendString:@"]"];
+    NSRange range = [mStr rangeOfString:@"," options:NSBackwardsSearch];
+    if (range.location != NSNotFound){
+        [mStr deleteCharactersInRange:range];
+    }
+    return mStr;
+}
+
+@end
+
 @implementation NSDictionary (LocaleLog)
 
-- (NSString *)desc {
+- (NSString *)descriptionWithLocale:(id)locale {
     NSMutableString *mStr = [NSMutableString stringWithString:@"{\n"];
     [self enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         [mStr appendFormat:@"\t%@ = %@;\n", key, obj];
@@ -254,3 +278,5 @@ static SIPageManager *sharedManager;
     return mStr;
 }
 @end
+#endif
+
