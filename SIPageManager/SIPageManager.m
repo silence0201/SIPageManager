@@ -9,6 +9,11 @@
 #import "SIPageManager.h"
 #import "UIViewController+Intent.h"
 
+static NSString *const aStoryboardKey = @"StoryBoard";
+static NSString *const aViewControllerKey = @"ViewController";
+static NSString *const hostKey = @"Host";
+static NSString *const methodKey = @"Method";
+
 static SIPageManager *sharedManager;
 
 @interface SIPageManager()
@@ -161,7 +166,19 @@ static SIPageManager *sharedManager;
 }
 
 + (void)registerURLWithFile:(NSString *)filePath {
-    // TODO:通过文件进行注册
+    NSArray *intentArrays = [NSArray arrayWithContentsOfFile:filePath];
+    if (!intentArrays) return;
+    for (NSDictionary *intentDic in intentArrays) {
+        NSString *aStoryboard = [intentDic objectForKey:aStoryboardKey];
+        NSString *aViewController = [intentDic objectForKey:aViewControllerKey];
+        NSString *name = [intentDic objectForKey:hostKey];
+        SIIntentMethod method = [self methodWithString:[intentDic objectForKey:methodKey]];
+        if (aViewController.length > 0 && name.length > 0) {
+            SIPageIntent *intent = [SIPageIntent intentWithStoryboard:aStoryboard aController:aViewController method:method];
+            [self registerURL:name forIntent:intent];
+        }
+    }
+    
 }
 
 + (void)deregisterURL:(NSString *)url {
@@ -209,6 +226,15 @@ static SIPageManager *sharedManager;
     intent.parameters = params;
     [self showPageWith:intent];
     return YES;
+}
+
+#pragma mark --- Tool
++ (SIIntentMethod)methodWithString:(NSString *)method {
+    if ([method isEqualToString:@"Pop"]) return SIIntentMethodPop;
+    if ([method isEqualToString:@"Present"]) return SIIntentMethodPresent;
+    if ([method isEqualToString:@"Dismiss"]) return SIIntentMethodDismiss;
+    // 如果不设置,默认为push
+    return SIIntentMethodPush;
 }
 
 @end

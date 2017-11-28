@@ -17,8 +17,10 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-        SIPageIntent *intent = [SIPageIntent intentWithStoryboard:nil aController:@"URLViewController" method:SIIntentMethodPush];
-    [SIPageManager registerURL:@"test" forIntent:intent];
+    //SIPageIntent *intent = [SIPageIntent intentWithStoryboard:nil aController:@"URLViewController" method:SIIntentMethodPush];
+    // [SIPageManager registerURL:@"test" forIntent:intent];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Intent" ofType:@"plist"];
+    [SIPageManager registerURLWithFile:filePath];
     [SIPageManager setLogEnable:YES];
     return YES;
 }

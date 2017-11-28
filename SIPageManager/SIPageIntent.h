@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSUInteger, SIIntentMethod) {
-    SIIntentMethodPush,
+    SIIntentMethodPush = 0,
     SIIntentMethodPop,
     SIIntentMethodPresent,
     SIIntentMethodDismiss

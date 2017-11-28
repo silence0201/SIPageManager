@@ -19,6 +19,7 @@
 		E88EA1C91FCA792D00B66BA3 /* PushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E88EA1C51FCA792D00B66BA3 /* PushViewController.m */; };
 		E88EA1CA1FCA792D00B66BA3 /* URLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E88EA1C61FCA792D00B66BA3 /* URLViewController.m */; };
 		E88EA1CB1FCA792D00B66BA3 /* PresentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E88EA1C71FCA792D00B66BA3 /* PresentViewController.m */; };
+		E88EA1CF1FCDA77E00B66BA3 /* Intent.plist in Resources */ = {isa = PBXBuildFile; fileRef = E88EA1CE1FCDA77E00B66BA3 /* Intent.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		E88EA1C61FCA792D00B66BA3 /* URLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLViewController.m; sourceTree = "<group>"; };
 		E88EA1C71FCA792D00B66BA3 /* PresentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentViewController.m; sourceTree = "<group>"; };
 		E88EA1C81FCA792D00B66BA3 /* PushViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushViewController.h; sourceTree = "<group>"; };
+		E88EA1CE1FCDA77E00B66BA3 /* Intent.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Intent.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				E88EA19A1FCA77D100B66BA3 /* AppDelegate.m */,
 				E88EA19C1FCA77D100B66BA3 /* ViewController.h */,
 				E88EA19D1FCA77D100B66BA3 /* ViewController.m */,
+				E88EA1CE1FCDA77E00B66BA3 /* Intent.plist */,
 				E88EA19F1FCA77D100B66BA3 /* Main.storyboard */,
 				E88EA1A21FCA77D100B66BA3 /* Assets.xcassets */,
 				E88EA1A41FCA77D100B66BA3 /* LaunchScreen.storyboard */,
@@ -176,6 +179,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E88EA1CF1FCDA77E00B66BA3 /* Intent.plist in Resources */,
 				E88EA1A61FCA77D100B66BA3 /* LaunchScreen.storyboard in Resources */,
 				E88EA1A31FCA77D100B66BA3 /* Assets.xcassets in Resources */,
 				E88EA1A11FCA77D100B66BA3 /* Main.storyboard in Resources */,
