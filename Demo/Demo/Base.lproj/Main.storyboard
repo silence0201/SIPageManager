@@ -27,9 +27,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fxH-0t-H1j">
-                                <rect key="frame" x="172" y="318" width="30" height="30"/>
+                                <rect key="frame" x="149" y="318" width="77" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="URL"/>
+                                <state key="normal" title="URL1"/>
                                 <connections>
                                     <action selector="urlVc:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8K5-gr-kXs"/>
                                 </connections>
@@ -50,6 +50,14 @@
                                     <action selector="persentVc:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pYL-O0-a9P"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="43W-We-bZ0">
+                                <rect key="frame" x="165" y="489" width="38" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="URL2"/>
+                                <connections>
+                                    <action selector="url2Vc:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dHO-xW-hiC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -59,7 +67,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="596" y="-9"/>
+            <point key="canvasLocation" x="596" y="-9.4452773613193415"/>
         </scene>
         <!--StoryBoard-->
         <scene sceneID="920-oa-2Zt">
@@ -111,6 +119,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="QWh-Wk-jXB"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sdG-O4-VHk">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

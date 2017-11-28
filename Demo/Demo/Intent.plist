@@ -12,5 +12,15 @@
 		<key>StoryBoard</key>
 		<string></string>
 	</dict>
+	<dict>
+		<key>Method</key>
+		<string>push</string>
+		<key>Host</key>
+		<string>test2</string>
+		<key>ViewController</key>
+		<string>StoryboardOneViewController</string>
+		<key>StoryBoard</key>
+		<string>Main</string>
+	</dict>
 </array>
 </plist>
