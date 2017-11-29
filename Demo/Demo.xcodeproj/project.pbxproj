@@ -13,7 +13,6 @@
 		E88EA1A31FCA77D100B66BA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E88EA1A21FCA77D100B66BA3 /* Assets.xcassets */; };
 		E88EA1A61FCA77D100B66BA3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E88EA1A41FCA77D100B66BA3 /* LaunchScreen.storyboard */; };
 		E88EA1A91FCA77D100B66BA3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E88EA1A81FCA77D100B66BA3 /* main.m */; };
-		E88EA1B61FCA77D700B66BA3 /* UIViewController+Intent.m in Sources */ = {isa = PBXBuildFile; fileRef = E88EA1B11FCA77D700B66BA3 /* UIViewController+Intent.m */; };
 		E88EA1B71FCA77D700B66BA3 /* SIPageIntent.m in Sources */ = {isa = PBXBuildFile; fileRef = E88EA1B21FCA77D700B66BA3 /* SIPageIntent.m */; };
 		E88EA1B81FCA77D700B66BA3 /* SIPageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E88EA1B51FCA77D700B66BA3 /* SIPageManager.m */; };
 		E88EA1C91FCA792D00B66BA3 /* PushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E88EA1C51FCA792D00B66BA3 /* PushViewController.m */; };
@@ -34,10 +33,8 @@
 		E88EA1A71FCA77D100B66BA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E88EA1A81FCA77D100B66BA3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E88EA1B01FCA77D700B66BA3 /* SIPageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIPageManager.h; sourceTree = "<group>"; };
-		E88EA1B11FCA77D700B66BA3 /* UIViewController+Intent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Intent.m"; sourceTree = "<group>"; };
 		E88EA1B21FCA77D700B66BA3 /* SIPageIntent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIPageIntent.m; sourceTree = "<group>"; };
 		E88EA1B31FCA77D700B66BA3 /* SIPageIntent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIPageIntent.h; sourceTree = "<group>"; };
-		E88EA1B41FCA77D700B66BA3 /* UIViewController+Intent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Intent.h"; sourceTree = "<group>"; };
 		E88EA1B51FCA77D700B66BA3 /* SIPageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SIPageManager.m; sourceTree = "<group>"; };
 		E88EA1C31FCA792D00B66BA3 /* URLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLViewController.h; sourceTree = "<group>"; };
 		E88EA1C41FCA792D00B66BA3 /* PresentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentViewController.h; sourceTree = "<group>"; };
@@ -99,8 +96,6 @@
 			children = (
 				E88EA1B31FCA77D700B66BA3 /* SIPageIntent.h */,
 				E88EA1B21FCA77D700B66BA3 /* SIPageIntent.m */,
-				E88EA1B41FCA77D700B66BA3 /* UIViewController+Intent.h */,
-				E88EA1B11FCA77D700B66BA3 /* UIViewController+Intent.m */,
 				E88EA1B01FCA77D700B66BA3 /* SIPageManager.h */,
 				E88EA1B51FCA77D700B66BA3 /* SIPageManager.m */,
 			);
@@ -197,7 +192,6 @@
 				E88EA19E1FCA77D100B66BA3 /* ViewController.m in Sources */,
 				E88EA1A91FCA77D100B66BA3 /* main.m in Sources */,
 				E88EA1B81FCA77D700B66BA3 /* SIPageManager.m in Sources */,
-				E88EA1B61FCA77D700B66BA3 /* UIViewController+Intent.m in Sources */,
 				E88EA19B1FCA77D100B66BA3 /* AppDelegate.m in Sources */,
 				E88EA1C91FCA792D00B66BA3 /* PushViewController.m in Sources */,
 				E88EA1B71FCA77D700B66BA3 /* SIPageIntent.m in Sources */,

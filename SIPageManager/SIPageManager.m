@@ -7,7 +7,6 @@
 //
 
 #import "SIPageManager.h"
-#import "UIViewController+Intent.h"
 
 #ifdef DEBUG
 #define SILog(...)      printf("[%s]:%s\n", __TIME__ , [[NSString stringWithFormat:__VA_ARGS__] UTF8String])
