@@ -38,6 +38,22 @@
     SIPageIntent *intent = [SIPageIntent intentWithStoryboard:@"Main" aController:@"StoryboardOneViewController" method:SIIntentMethodPush withParameters:@{@"title":@"Storyboard"}];
     [SIPageManager showPageWith:intent];
 }
+- (IBAction)actionTest:(id)sender {
+    SIPageIntent *intent = [SIPageIntent intentWithAction:^(UIViewController *currentVc, NSDictionary *params) {
+        UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"Title" message:@"Message" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            NSLog(@"Params:%@",params);
+        }];
+        [controller addAction:action];
+        [currentVc presentViewController:controller animated:YES completion:nil];
+    }];
+    [SIPageManager showPageWith:intent];
+}
+- (IBAction)actionURL:(id)sender {
+    NSString *urlStr = @"jump://test/action?title=URLAction&Message=额外消息";
+    NSURL *url = [NSURL URLWithString:[urlStr stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]];
+    [SIPageManager handleOpenURL:url];
+}
 
 @end
 

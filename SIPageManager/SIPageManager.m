@@ -140,8 +140,17 @@ static SIPageManager *sharedManager;
     [[self rootViewController]dismissViewControllerAnimated:intent.animated completion:intent.completion];
 }
 
++ (void)actionWithIntent:(SIPageIntent *)intent {
+    IntentAction action = intent.intentAction;
+    if (action) {
+        action([self rootViewController],intent.parameters);
+    }
+}
 + (void)showPageWith:(SIPageIntent *)intent {
     switch (intent.method) {
+        case SIIntentMethodAction:
+            [self actionWithIntent:intent];
+            break;
         case SIIntentMethodPush:
             [self pushWithIntent:intent];
             break;
@@ -236,8 +245,9 @@ static SIPageManager *sharedManager;
     if ([method isEqualToString:@"Pop"]) return SIIntentMethodPop;
     if ([method isEqualToString:@"Present"]) return SIIntentMethodPresent;
     if ([method isEqualToString:@"Dismiss"]) return SIIntentMethodDismiss;
-    // 如果不设置,默认为push
-    return SIIntentMethodPush;
+    if ([method isEqualToString:@"Push"]) return SIIntentMethodPush;
+    // 如果不设置,默认为Action
+    return SIIntentMethodAction;
 }
 
 @end

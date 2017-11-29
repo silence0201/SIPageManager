@@ -4,7 +4,7 @@
 <array>
 	<dict>
 		<key>Method</key>
-		<string>push</string>
+		<string>Push</string>
 		<key>Host</key>
 		<string>test/First</string>
 		<key>ViewController</key>
@@ -14,7 +14,7 @@
 	</dict>
 	<dict>
 		<key>Method</key>
-		<string>push</string>
+		<string>Push</string>
 		<key>Host</key>
 		<string>test/Second</string>
 		<key>ViewController</key>

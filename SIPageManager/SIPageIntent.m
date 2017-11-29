@@ -51,6 +51,13 @@
     return intent;
 }
 
++ (instancetype)intentWithAction:(IntentAction)action {
+    SIPageIntent *intent = [[SIPageIntent alloc]init];
+    intent.intentAction = action;
+    intent.method = SIIntentMethodAction;
+    return intent;
+}
+
 #pragma mark --- Private Method
 - (UIViewController *)targetVc {
     if (!_targetVc) {

@@ -9,13 +9,15 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSUInteger, SIIntentMethod) {
-    SIIntentMethodPush = 0,
+    SIIntentMethodAction = 0,
+    SIIntentMethodPush,
     SIIntentMethodPop,
     SIIntentMethodPresent,
     SIIntentMethodDismiss
 };
 
 typedef void(^IntentCompletion)(void);
+typedef void(^IntentAction)(UIViewController *currentVc,NSDictionary *params);
 
 @interface SIPageIntent : NSObject
 
@@ -32,6 +34,9 @@ typedef void(^IntentCompletion)(void);
 @property (nonatomic,copy) NSString *aController;
 /// StoryBoard名
 @property (nonatomic,copy) NSString *aStoryboard;
+
+/// ActionBlock
+@property (nonatomic,copy) IntentAction intentAction;
 
 #pragma mark --- 扩展参数
 /// Present方式完成回调
@@ -61,6 +66,9 @@ typedef void(^IntentCompletion)(void);
                          aController:(NSString *)aController
                               method:(SIIntentMethod)method
                       withParameters:(NSDictionary *)parameters;
+
+/// 通过Action创建
++ (instancetype)intentWithAction:(IntentAction)action;
 
 @end
 
