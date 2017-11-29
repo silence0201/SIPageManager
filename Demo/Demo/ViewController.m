@@ -9,6 +9,12 @@
 #import "ViewController.h"
 #import "SIPageManager.h"
 
+#ifdef DEBUG
+#define SILog(...)      printf("[%s]:%s\n", __TIME__ , [[NSString stringWithFormat:__VA_ARGS__] UTF8String])
+#else
+#define SILog(...)
+#endif
+
 @interface ViewController ()
 
 @end
@@ -42,7 +48,7 @@
     SIPageIntent *intent = [SIPageIntent intentWithAction:^(UIViewController *currentVc, NSDictionary *params) {
         UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"Title" message:@"Message" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            NSLog(@"Params:%@",params);
+            SILog(@"Params:%@",params);
         }];
         [controller addAction:action];
         [currentVc presentViewController:controller animated:YES completion:nil];

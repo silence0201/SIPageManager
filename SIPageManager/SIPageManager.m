@@ -198,7 +198,8 @@ static SIPageManager *sharedManager;
 + (BOOL)handleOpenURL:(NSURL *)url {
     if (!url) return NO ;
     if([SIPageManager sharedManager].logAbel){
-        SILog(@"跳转的URL:%@",url.absoluteString);
+        NSString *urlStr = [url.absoluteString stringByRemovingPercentEncoding];
+        SILog(@"跳转的URL:%@",urlStr);
     }
     NSURLComponents *components = [NSURLComponents componentsWithURL:url resolvingAgainstBaseURL:YES];
     
