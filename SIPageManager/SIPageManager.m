@@ -161,12 +161,12 @@ static SIPageManager *sharedManager;
 }
 
 #pragma mark --- 页面管理
-+ (void)registerURL:(NSString *)url forIntent:(SIPageIntent *)intent {
-    if (!url || url.length == 0 || !intent) return;
-    [[SIPageManager sharedManager].pathRegister setObject:intent forKey:url];
++ (void)registerPath:(NSString *)path forIntent:(SIPageIntent *)intent {
+    if (!path || path.length == 0 || !intent) return;
+    [[SIPageManager sharedManager].pathRegister setObject:intent forKey:path];
 }
 
-+ (void)registerURLWithFile:(NSString *)filePath {
++ (void)registerPathWithFile:(NSString *)filePath {
     NSArray *intentArrays = [NSArray arrayWithContentsOfFile:filePath];
     if (!intentArrays) return;
     for (NSDictionary *intentDic in intentArrays) {
@@ -176,15 +176,15 @@ static SIPageManager *sharedManager;
         SIIntentMethod method = [self methodWithString:[intentDic objectForKey:methodKey]];
         if (aViewController.length > 0 && name.length > 0) {
             SIPageIntent *intent = [SIPageIntent intentWithStoryboard:aStoryboard aController:aViewController method:method];
-            [self registerURL:name forIntent:intent];
+            [self registerPath:name forIntent:intent];
         }
     }
     
 }
 
-+ (void)deregisterURL:(NSString *)url {
-    if (!url || url.length == 0) return;
-    [[SIPageManager sharedManager].pathRegister removeObjectForKey:url];
++ (void)deregisterPath:(NSString *)path {
+    if (!path || path.length == 0) return;
+    [[SIPageManager sharedManager].pathRegister removeObjectForKey:path];
 }
 
 + (BOOL)handleOpenURL:(NSURL *)url {
@@ -212,7 +212,7 @@ static SIPageManager *sharedManager;
     if (!match) return NO;
     
     // 获取页面名
-    NSString *name = (!components.path||components.path.length == 0)? components.host : components.path.lastPathComponent;
+    NSString *name = (!components.path||components.path.length == 0)? components.host : [components.host stringByAppendingString:components.path];
     SIPageIntent *intent = [[SIPageManager sharedManager].pathRegister objectForKey:name];
     if (!intent) return NO;
     // 获取页面参数

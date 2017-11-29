@@ -6,7 +6,7 @@
 		<key>Method</key>
 		<string>push</string>
 		<key>Host</key>
-		<string>test</string>
+		<string>test/First</string>
 		<key>ViewController</key>
 		<string>URLViewController</string>
 		<key>StoryBoard</key>
@@ -16,7 +16,7 @@
 		<key>Method</key>
 		<string>push</string>
 		<key>Host</key>
-		<string>test2</string>
+		<string>test/Second</string>
 		<key>ViewController</key>
 		<string>StoryboardOneViewController</string>
 		<key>StoryBoard</key>

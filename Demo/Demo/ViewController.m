@@ -24,10 +24,10 @@
     [SIPageManager showPageWith:intent];
 }
 - (IBAction)urlVc:(id)sender {
-    [SIPageManager handleOpenURL:[NSURL URLWithString:@"jump://test?title=URLJump"]];
+    [SIPageManager handleOpenURL:[NSURL URLWithString:@"jump://test/First?title=URLJump"]];
 }
 - (IBAction)url2Vc:(id)sender {
-    [SIPageManager handleOpenURL:[NSURL URLWithString:@"jump://test2?title=URL2Jump"]];
+    [SIPageManager handleOpenURL:[NSURL URLWithString:@"jump://test/Second?title=URL2Jump"]];
 }
 
 - (IBAction)pushVc:(id)sender {
